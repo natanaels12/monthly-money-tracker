@@ -14,9 +14,9 @@ entering your income.
 
 ## Run with Docker
 
-Docker Compose runs the production frontend and API together. It also stores
-the SQLite database in a named volume so budget data survives container
-restarts.
+Docker Compose runs the production frontend and API together. The backend
+bind-mounts `backend\budget.db`, so Docker and a locally started Python backend
+use the same SQLite database file.
 
 ```powershell
 docker compose up --build
@@ -31,10 +31,12 @@ Stop the containers without deleting budget data:
 docker compose down
 ```
 
-To reset the app and remove the persisted SQLite database:
+To reset the app, stop the containers and delete `backend\budget.db`. The app
+creates a fresh database the next time the local or Docker backend starts.
 
 ```powershell
-docker compose down --volumes
+docker compose down
+Remove-Item backend\budget.db
 ```
 
 ## Prerequisites
