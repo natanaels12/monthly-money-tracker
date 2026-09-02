@@ -1,0 +1,102 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        ink: "#0f172a",
+        canvas: "#f8fafc",
+        primary: {
+          50: "#eff6ff",
+          100: "#dbeafe",
+          500: "#3b82f6",
+          600: "#2563eb",
+          700: "#1e40af",
+          900: "#1e3a8a",
+        },
+        success: {
+          50: "#f0fdf4",
+          100: "#dcfce7",
+          500: "#22c55e",
+          600: "#16a34a",
+          700: "#15803d",
+          900: "#1b4332",
+        },
+        accent: {
+          50: "#ecfdf5",
+          100: "#d1fae5",
+          500: "#10b981",
+          600: "#059669",
+          700: "#047857",
+          900: "#064e3b",
+        },
+        warning: {
+          50: "#fefce8",
+          100: "#fef3c7",
+          500: "#f59e0b",
+          600: "#d97706",
+          700: "#b45309",
+          900: "#78350f",
+        },
+        danger: {
+          50: "#fef2f2",
+          100: "#fee2e2",
+          500: "#ef4444",
+          600: "#dc2626",
+          700: "#b91c1c",
+          900: "#7f1d1d",
+        },
+        glass: {
+          light: "rgba(255, 255, 255, 0.15)",
+          lighter: "rgba(255, 255, 255, 0.08)",
+        },
+        card: "#192134",
+      },
+      backgroundColor: {
+        "glass-dark": "rgba(25, 33, 52, 0.7)",
+      },
+      backdropBlur: {
+        xs: "2px",
+        sm: "4px",
+        md: "8px",
+        lg: "12px",
+        xl: "16px",
+        "2xl": "20px",
+      },
+      boxShadow: {
+        card: "0 18px 40px -24px rgba(15, 23, 42, 0.28)",
+        glass: "0 8px 32px -8px rgba(0, 0, 0, 0.3)",
+        "glass-lg": "0 12px 40px -12px rgba(0, 0, 0, 0.4)",
+        "glow-blue": "0 0 20px rgba(59, 130, 246, 0.15)",
+        "glow-green": "0 0 20px rgba(16, 185, 129, 0.15)",
+      },
+      borderColor: {
+        glass: "rgba(255, 255, 255, 0.2)",
+        "glass-light": "rgba(255, 255, 255, 0.1)",
+      },
+      fontFamily: {
+        sans: [
+          "Work Sans",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "sans-serif",
+        ],
+        display: ["Outfit", "Work Sans", "sans-serif"],
+        accent: ["Outfit", "Work Sans", "sans-serif"],
+      },
+      spacing: {
+        xs: "0.25rem",
+        sm: "0.5rem",
+        md: "0.75rem",
+        lg: "1rem",
+        xl: "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "2rem",
+      },
+    },
+  },
+  plugins: [],
+};

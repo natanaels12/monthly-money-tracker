@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #2563eb;
+    --color-on-primary: #ffffff;
+    --color-secondary: #3b82f6;
+    --color-on-secondary: #0f172a;
+    --color-accent: #ea580c;
+    --color-on-accent: #ffffff;
+    --color-background: #f8fafc;
+    --color-foreground: #1e293b;
+    --color-card: #ffffff;
+    --color-card-foreground: #1e293b;
+    --color-muted: #e9eff8;
+    --color-muted-foreground: #475569;
+    --color-border: #e2e8f0;
+    --color-destructive: #dc2626;
+    --color-on-destructive: #ffffff;
+    --color-ring: #2563eb;
+    --blur-amount: 15px;
+    --glass-opacity: 0.15;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-width: 320px;
+    background: var(--color-background);
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    color: var(--color-foreground);
+    font-family:
+      "Work Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    background: var(--color-background);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Outfit", "Work Sans", sans-serif;
+  }
+
+  button:not(:disabled),
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  :where(button, a, input, select):focus-visible {
+    outline: 3px solid rgb(37 99 235 / 35%);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .glass {
+    @apply relative overflow-hidden rounded-2xl backdrop-blur-xl;
+    background: rgba(25, 33, 52, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(15px);
+  }
+
+  .glass-sm {
+    @apply relative overflow-hidden rounded-xl backdrop-blur-lg;
+    background: rgba(25, 33, 52, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-hover {
+    @apply glass transition-all duration-300;
+  }
+
+  .glass-hover:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-enhanced {
+    @apply glass p-6;
+    box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-interactive {
+    @apply card-enhanced cursor-pointer transition-all duration-300;
+  }
+
+  .card-interactive:hover {
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+  }
+
+  .form-label {
+    @apply mb-1.5 block text-xs font-bold uppercase tracking-[0.08em] text-slate-600;
+  }
+
+  .form-input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium text-slate-900 outline-none transition placeholder:text-slate-400;
+  }
+
+  .form-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgb(37 99 235 / 15%);
+  }
+
+  .budget-slider {
+    height: 6px;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 999px;
+    background: rgba(59, 130, 246, 0.2);
+    accent-color: #2563eb;
+    transition: all 150ms ease-in-out;
+  }
+
+  .budget-slider:hover {
+    background: rgba(59, 130, 246, 0.3);
+  }
+
+  .budget-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    transition: all 150ms ease-in-out;
+  }
+
+  .budget-slider::-webkit-slider-thumb:hover {
+    background: #2563eb;
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.7);
+  }
+
+  .badge-success {
+    @apply inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-3 py-1 text-sm font-medium text-emerald-300 border border-emerald-500/30;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center gap-1 rounded-full bg-amber-500/20 px-3 py-1 text-sm font-medium text-amber-300 border border-amber-500/30;
+  }
+
+  .badge-danger {
+    @apply inline-flex items-center gap-1 rounded-full bg-red-500/20 px-3 py-1 text-sm font-medium text-red-300 border border-red-500/30;
+  }
+
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .focus-ring {
+    outline: none;
+    box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px #0f172a;
+  }
+
+  .budget-slider::-webkit-slider-thumb {
+    width: 17px;
+    height: 17px;
+    appearance: none;
+    border: 3px solid #ffffff;
+    border-radius: 999px;
+    background: #2563eb;
+    box-shadow: 0 0 0 1px #93c5fd, 0 2px 6px rgb(15 23 42 / 20%);
+  }
+
+  .budget-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: 3px solid #ffffff;
+    border-radius: 999px;
+    background: #2563eb;
+    box-shadow: 0 0 0 1px #93c5fd, 0 2px 6px rgb(15 23 42 / 20%);
+  }
+}
